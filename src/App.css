@@ -22,11 +22,108 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-bg-primary{
+  background-color: #256F5B !important;
+  color: #fff !important;
+}
+.App-bg-light{
+  background-color: #6FA798 !important;
+  color: #fff !important;
+}
+.App-bg-dark{
+  background-color: #003829 !important;
+  color: #fff !important;
+}
+.App-nav *{
+  font-size: larger;
+}
+.m-1{
+  margin: 10px;
+}
+#new-note{
+  cursor: pointer;
+  margin-left: auto;
+}
+#bg-green{
+  background-color: green;
+}
+#bg-yellow{
+  background-color: yellow;
+}
+#color-picker{
+  margin-top: 20px;
+}
+.custom-radios div {
+  margin-top: 20px;
+  display: inline-block;
+}
+.custom-radios input[type="radio"] {
+  display: none;
+}
+.custom-radios input[type="radio"] + label {
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+.custom-radios input[type="radio"] + label span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  /* border-radius: 50%; */
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  line-height: 44px;
+}
+.custom-radios input[type="radio"] + label span img {
+  opacity: 0;
+  transition: all .3s ease;
+}
+.custom-radios input[type="radio"]#color-1 + label span {
+  background-color: #2ecc71;
+}
+.custom-radios input[type="radio"]#color-2 + label span {
+  background-color: #3498db;
+}
+.custom-radios input[type="radio"]#color-3 + label span {
+  background-color: #f1c40f;
+}
+.custom-radios input[type="radio"]#color-4 + label span {
+  background-color: #e74c3c;
+}
+.custom-radios input[type="radio"]#color-5 + label span {
+  background-color: #3ce7d0;
+}
+.custom-radios input[type="radio"]#color-6 + label span {
+  background-color: #e13ce7;
+}
+.custom-radios input[type="radio"]#color-7 + label span {
+  background-color: #e73c75;
+}
+.custom-radios input[type="radio"]#color-8 + label span {
+  background-color: #d6e73c;
+}
+.custom-radios input[type="radio"]#color-9 + label span {
+  background-color: #6b750f;
+}
+.custom-radios input[type="radio"]#color-10 + label span {
+  background-color: #0a7040;
+}
+.custom-radios input[type="radio"]#color-11 + label span {
+  background-color: #3a0863;
+}
+.custom-radios input[type="radio"]#color-12 + label span {
+  background-color: #4b0842;
+}
+.custom-radios input[type="radio"]:checked + label span img {
+  opacity: 1;
+}
+
+#notes{
+  margin-top: 20px;
 }
