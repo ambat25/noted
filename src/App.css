@@ -87,38 +87,86 @@
 .custom-radios input[type="radio"]#color-1 + label span {
   background-color: #2ecc71;
 }
+.single-note-color-1{
+  background-color: #2ecc71 !important;
+  color: #fff !important;
+}
 .custom-radios input[type="radio"]#color-2 + label span {
   background-color: #3498db;
+}
+.single-note-color-2{
+  background-color: #3498db !important;
+  color: #fff !important;
 }
 .custom-radios input[type="radio"]#color-3 + label span {
   background-color: #f1c40f;
 }
+.single-note-color-3{
+  background-color: #f1c40f !important;
+  color: #fff !important;
+}
 .custom-radios input[type="radio"]#color-4 + label span {
   background-color: #e74c3c;
+}
+.single-note-color-4{
+  background-color: #e74c3c !important;
+  color: #fff !important;
 }
 .custom-radios input[type="radio"]#color-5 + label span {
   background-color: #3ce7d0;
 }
+.single-note-color-5{
+  background-color: #3ce7d0 !important;
+  color: #fff !important;
+}
 .custom-radios input[type="radio"]#color-6 + label span {
   background-color: #e13ce7;
+}
+.single-note-color-6{
+  background-color: #e13ce7 !important;
+  color: #fff !important;
 }
 .custom-radios input[type="radio"]#color-7 + label span {
   background-color: #e73c75;
 }
+.single-note-color-7{
+  background-color: #e73c75 !important;
+  color: #fff !important;
+}
 .custom-radios input[type="radio"]#color-8 + label span {
   background-color: #d6e73c;
+}
+.single-note-color-8{
+  background-color: #d6e73c !important;
+  color: #fff !important;
 }
 .custom-radios input[type="radio"]#color-9 + label span {
   background-color: #6b750f;
 }
+.single-note-color-9{
+  background-color: #6b750f !important;
+  color: #fff !important;
+}
 .custom-radios input[type="radio"]#color-10 + label span {
   background-color: #0a7040;
+}
+.single-note-color-10{
+  background-color: #0a7040 !important;
+  color: #fff !important;
 }
 .custom-radios input[type="radio"]#color-11 + label span {
   background-color: #3a0863;
 }
+.single-note-color-11{
+  background-color: #3a0863 !important;
+  color: #fff !important;
+}
 .custom-radios input[type="radio"]#color-12 + label span {
   background-color: #4b0842;
+}
+.single-note-color-12{
+  background-color: #4b0842 !important;
+  color: #fff !important;
 }
 .custom-radios input[type="radio"]:checked + label span img {
   opacity: 1;
@@ -126,4 +174,50 @@
 
 #notes{
   margin-top: 20px;
+  padding: 20px;
+}
+.single-note-header{
+  padding:10px;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow : hidden;
+  text-align: left;
+  font-size: large;
+  text-transform: uppercase;
+  display: block !important;
+}
+.single-note-content{
+  width: 100%;
+  height: 200px;
+  
+}
+.module {
+  width: 100%;
+  height: 100%;
+  margin: 0 0 1em 0;
+  overflow: hidden;
+}
+.module p {
+  margin: 0;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+}
+.last-line {
+  padding: 0px;
+  height: 9em;
+  text-align: justify; /* exactly three lines */
+  text-overflow: -o-ellipsis-lastline;
+}
+.text-justify{
+  text-align: justify
+}
+
+.edit-note{
+  float: right;
+  cursor: pointer;
 }
