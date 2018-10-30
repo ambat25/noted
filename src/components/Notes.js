@@ -34,9 +34,9 @@ class Notes extends Component {
 				<div className="columns is-multiline ">
 					{this.props.notes.map((note) => (
 						<Note
-							key={note.id}
+							key={note._id}
                             editNote={this.handleEditNote}
-                            id={note.id}
+                            id={note._id}
 							title={note.title}
 							color={note.color}
 							note={note.note}

@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
-import { closeModal, newNote,updateCurrent, updateNote } from '../reducers/note';
+import { closeModal, addNote,updateCurrent, updateNote, fetchNotes } from '../reducers/note';
 import { connect } from 'react-redux';
 import SelectColor from './SelectColor';
 class Newnote extends Component {
 	
+	componentDidMount() {
+		this.props.fetchNotes()	
+	}
+	
+
 	closeModal = () => {
 		this.props.closeModal();
 	};
@@ -12,12 +17,12 @@ class Newnote extends Component {
 		e.preventDefault();
 		const note = this.props.current_note;
 		if (note.title && note.note && note.color) {
-			if(note.id){
+			if(note._id){
 				this.props.updateNote(note);
 				return;
 			}
-			note.id = new Date().toISOString(); 
-			this.props.newNote(note);
+			note._id = new Date().toISOString(); 
+			this.props.addNote(note);
 		}
 	};
 
@@ -98,4 +103,4 @@ class Newnote extends Component {
 	}
 }
 
-export default connect((state) => state, { closeModal, newNote,updateCurrent, updateNote })(Newnote);
+export default connect((state) => state, { closeModal, addNote,updateCurrent, updateNote, fetchNotes })(Newnote);
