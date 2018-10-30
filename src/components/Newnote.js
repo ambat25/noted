@@ -1,50 +1,45 @@
 import React, { Component } from 'react';
-import { closeModal } from '../reducers/note';
+import { closeModal, newNote,updateCurrent, updateNote } from '../reducers/note';
 import { connect } from 'react-redux';
 import SelectColor from './SelectColor';
 class Newnote extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			title: '',
-			note: '',
-			color: ''
-		};
-	}
-
+	
 	closeModal = () => {
 		this.props.closeModal();
 	};
 
 	addNote = (e) => {
 		e.preventDefault();
-		const note = {
-			title: this.state.title,
-			note: this.state.note,
-			color: this.state.color
-		};
+		const note = this.props.current_note;
 		if (note.title && note.note && note.color) {
-			console.log(note);
+			if(note.id){
+				this.props.updateNote(note);
+				return;
+			}
+			note.id = new Date().toISOString(); 
+			this.props.newNote(note);
 		}
 	};
 
 	handleTitleChange = (e) => {
-		this.setState({
-			title: e.target.value
-		});
+		this.props.updateCurrent({
+			...this.props.current_note,
+			title: e.target.value,
+		})
 	};
 
 	handleNoteChange = (e) => {
-		this.setState({
-			note: e.target.value
-		});
+		this.props.updateCurrent({
+			...this.props.current_note,
+			note: e.target.value,
+		})
 	};
 
 	handleColorChange = (val) => {
-		this.setState({
-			color: val
-		});
+		this.props.updateCurrent({
+			...this.props.current_note,
+			color:val,
+		})
 	};
 
 	render() {
@@ -65,6 +60,7 @@ class Newnote extends Component {
 									<input
 										className="input is-large is-primary"
 										onChange={this.handleTitleChange}
+										value={this.props.current_note.title || ''}
 										type="text"
 										placeholder="Title"
 									/>
@@ -79,15 +75,16 @@ class Newnote extends Component {
 									onChange={this.handleNoteChange}
 									className="textarea is-primary has-fixed-size"
 									placeholder="write your note here"
+									value={this.props.current_note.note || ''}
 									rows="10"
 								/>
 							</div>
-							<SelectColor selectedColor={this.state.color} changeColor={this.handleColorChange} />
+							<SelectColor selectedColor={this.props.current_note.color} changeColor={this.handleColorChange} />
 						</form>
 
 						<footer className="modal-card-foot">
 							<button className="button is-success" onClick={this.addNote}>
-								Add
+								{this.props.current_note.id ? 'Update' : 'Add'}
 							</button>
 
 							<button className="button" onClick={this.closeModal}>
@@ -101,4 +98,4 @@ class Newnote extends Component {
 	}
 }
 
-export default connect((state) => state, { closeModal })(Newnote);
+export default connect((state) => state, { closeModal, newNote,updateCurrent, updateNote })(Newnote);

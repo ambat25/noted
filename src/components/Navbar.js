@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 class Navbar extends Component {
 	openNewNote = ()=>{
 		this.props.showModal()
-		console.log('should open')
 	}
 	render() {
 		return (
