@@ -1,11 +1,8 @@
 
 import noteReducer from './reducers/note';
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux';
+import thunk from "redux-thunk";
+import {composeWithDevTools} from 'redux-devtools-extension';
 
-const reducer = noteReducer
-/* eslint-disable no-underscore-dangle */
-export default createStore(
-   reducer, /* preloadedState, */
-   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  );
-/* eslint-enable */
+const reducer = noteReducer;
+export default createStore(reducer,composeWithDevTools(applyMiddleware(thunk)));
