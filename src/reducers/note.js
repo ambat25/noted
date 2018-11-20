@@ -37,7 +37,9 @@ export const updateNote = (note) => {
 
 export const deleteNote = (note) => {
 	return (dispatch) => {
-		dispatch(newNote(note));
+		noteService.deleteNote(note).then((res) => {
+			dispatch(removeNote(note._id));
+		});
 	};
 };
 
@@ -81,7 +83,12 @@ export default (state = initialState, action) => {
 				show_note_modal: false
 			};
 		case REMOVE_NOTE:
-			return { ...state, notes: state.notes.filter((note) => note._id !== action.payload) };
+			return {
+				...state,
+				notes: state.notes.filter((note) => note._id !== action.payload),
+				show_edit_modal: false,
+				show_note_modal: false
+			};
 		case UPDATE_CURRENT:
 			return { ...state, current_note: { ...state.current_note, ...action.payload } };
 		case EDIT_NOTE:

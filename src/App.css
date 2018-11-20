@@ -264,6 +264,7 @@
 
 .edit-note {
   float: right;
+  margin-left: 10px;
   cursor: pointer;
 }
 
