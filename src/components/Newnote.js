@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { closeModal, addNote,updateCurrent, updateNote, fetchNotes } from '../reducers/note';
+import { closeModal, addNote, updateCurrent, updateNote, fetchNotes } from '../reducers/note';
 import { connect } from 'react-redux';
 import SelectColor from './SelectColor';
 class Newnote extends Component {
-	
 	componentDidMount() {
-		this.props.fetchNotes()	
+		this.props.fetchNotes();
 	}
-	
 
 	closeModal = () => {
 		this.props.closeModal();
@@ -17,11 +15,11 @@ class Newnote extends Component {
 		e.preventDefault();
 		const note = this.props.current_note;
 		if (note.title && note.note && note.color) {
-			if(note._id){
+			if (note._id) {
 				this.props.updateNote(note);
 				return;
 			}
-			note._id = new Date().toISOString(); 
+			note._id = new Date().toISOString();
 			this.props.addNote(note);
 		}
 	};
@@ -29,28 +27,28 @@ class Newnote extends Component {
 	handleTitleChange = (e) => {
 		this.props.updateCurrent({
 			...this.props.current_note,
-			title: e.target.value,
-		})
+			title: e.target.value
+		});
 	};
 
 	handleNoteChange = (e) => {
 		this.props.updateCurrent({
 			...this.props.current_note,
-			note: e.target.value,
-		})
+			note: e.target.value
+		});
 	};
 
 	handleColorChange = (val) => {
 		this.props.updateCurrent({
 			...this.props.current_note,
-			color:val,
-		})
+			color: val
+		});
 	};
 
 	render() {
 		return (
 			<div>
-				<div className={`modal ${this.props.show_modal ? 'is-active' : ''}`}>
+				<div className={`modal ${this.props.show_edit_modal ? 'is-active' : ''}`}>
 					<div onClick={this.closeModal} className="modal-background" />
 
 					<div className="modal-card">
@@ -84,12 +82,15 @@ class Newnote extends Component {
 									rows="10"
 								/>
 							</div>
-							<SelectColor selectedColor={this.props.current_note.color} changeColor={this.handleColorChange} />
+							<SelectColor
+								selectedColor={this.props.current_note.color}
+								changeColor={this.handleColorChange}
+							/>
 						</form>
 
 						<footer className="modal-card-foot">
 							<button className="button is-success" onClick={this.addNote}>
-								{this.props.current_note.id ? 'Update' : 'Add'}
+								{this.props.current_note._id ? 'Update' : 'Add'}
 							</button>
 
 							<button className="button" onClick={this.closeModal}>
@@ -103,4 +104,4 @@ class Newnote extends Component {
 	}
 }
 
-export default connect((state) => state, { closeModal, addNote,updateCurrent, updateNote, fetchNotes })(Newnote);
+export default connect((state) => state, { closeModal, addNote, updateCurrent, updateNote, fetchNotes })(Newnote);
