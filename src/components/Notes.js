@@ -8,9 +8,7 @@ class Notes extends Component {
 		return (
 			<div className="container m-1" id="notes">
 				<div className="columns is-multiline ">
-					{this.props.notes.map((note) => (
-						<Note key={note._id} id={note._id} title={note.title} color={note.color} note={note.note} />
-					))}
+					{this.props.notes.map((note) => <Note key={note._id} note={note} />)}
 				</div>
 			</div>
 		);
