@@ -35,8 +35,8 @@ class Notes extends Component {
 					{this.props.notes.map((note) => (
 						<Note
 							key={note._id}
-                            editNote={this.handleEditNote}
-                            id={note._id}
+							editNote={this.handleEditNote}
+							id={note._id}
 							title={note.title}
 							color={note.color}
 							note={note.note}
